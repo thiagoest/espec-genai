@@ -1,11 +1,14 @@
 class Pessoa:
     def __init__(self, nome = None, cpf = -1):
-        self.__nome = nome
-        self.cpf = cpf
+        self._nome = nome
+        if cpf != -1 and self.__validar_cpf(cpf):
+            self._cpf = cpf
+        else:
+            raise ValueError("CPF Inválido")
 
     @property
     def nome(self):
-        return self.__nome
+        return self._nome
 
     @nome.setter
     def nome(self, nome):
@@ -20,7 +23,7 @@ class Pessoa:
         if self.__validar_cpf(cpf):
             self.__cpf = cpf
         else:
-            self.__cpf = -1
+            raise ValueError("CPF Inválido")
 
     def __validar_cpf(self, cpf_teste):
         somatorio_valida_ultimo = 0
@@ -36,13 +39,15 @@ class Pessoa:
             somatorio_valida_penultimo += modulo * i
             somatorio_valida_ultimo += modulo * (i + 1)
             modulo = somatorio_valida_penultimo % 11
+
         if modulo < 2:
             if penultimo != 0:
                 return False # CPF inválido
         else:
-        if penultimo != 11 - modulo:
-            return False # CPF inválido
+            if penultimo != 11 - modulo:
+                return False # CPF inválido
         modulo = somatorio_valida_ultimo % 11
+
         if modulo < 2:
             if ultimo != 0:
                 return False # CPF inválido
@@ -50,6 +55,7 @@ class Pessoa:
             if penultimo != 11 - modulo:
                 return False # CPF inválido
         modulo = somatorio_valida_ultimo % 11
+
         if modulo < 2:
             if ultimo != 0:
                 return False # CPF inválido

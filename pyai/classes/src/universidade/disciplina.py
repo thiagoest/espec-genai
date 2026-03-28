@@ -1,11 +1,15 @@
+from .conteudo_ministrado import ConteudoMinistrado
+from .professor import Professor
+
 class Disciplina:
     def __init__(self, nome, carga_horaria = 60, professor = None):
         self.__nome = nome
         if carga_horaria > 0:
-            self.__carga_horaria = carga_horaria
+            self.carga_horaria = carga_horaria
         else:
-            self.__carga_horaria = -1 #Carga inválida
-        self.__professor = professor
+            self.carga_horaria = -1 #Carga inválida
+        self.professor = professor
+        self.__conteudos_ministrados = []
 
     @property
     def nome(self):
@@ -27,11 +31,21 @@ class Disciplina:
             self.__carga_horaria = -1 #Carga Inválida
 
     @property
+    def conteudos_ministrados(self):
+        return self.__conteudos_ministrados
+    
+    @property
+    def adicionar_conteudo_ministrado(self, conteudo, carga):
+        self.__conteudos_ministrados.append(ConteudoMinistrado(conteudo, carga))
+    
+    @property
     def professor(self):
         return self.__professor
     
     @professor.setter
     def professor(self, professor):
+        if professor is not None and not issubclass(type(professor), Professor):
+            raise TypeError("parâmetro professor deve derivar da classe Professor")                  
         self.__professor = professor
 
     def exibir_informacoes(self):
@@ -41,3 +55,7 @@ class Disciplina:
             print("Professor Responsável:", self.__professor.nome)
         else:
             print("Disciplina sem professor alocado")
+
+        print("Conteũdos Ministrados")
+        for cont in self.__conteudos_ministrados:
+            print(f"\t->id: {cont.id} {cont.descricao} ({cont.carga_horaria} hora)")
