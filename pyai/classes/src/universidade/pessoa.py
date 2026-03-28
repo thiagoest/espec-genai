@@ -1,16 +1,18 @@
 class Pessoa:
-    def __init__(self, nome = None, cpf = -1):
-        self._nome = nome
+    def __init__(self, nome = None, cpf = -1): # inicializador da classe
+        # nome: publico - acesso dentro e fora da classe
+        # __nome: privado - acesso apenas na classe
+        self._nome = nome 
         if cpf != -1 and self.__validar_cpf(cpf):
             self._cpf = cpf
         else:
             raise ValueError("CPF Inválido")
 
-    @property
+    @property # getter: atributo ou propriedade da classe usado para acessar fora da classe
     def nome(self):
         return self._nome
 
-    @nome.setter
+    @nome.setter # setter: usado para receber conteudo de fora da classe
     def nome(self, nome):
         self.__nome = nome
 

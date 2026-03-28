@@ -1,5 +1,5 @@
 class ConteudoMinistrado:
-    __PROX_ID = 0
+    __PROX_ID = 0 # dado estatico pertence a classe
 
     def __init__(self, descricao, carga_horaria):
         self.__descricao = descricao
