@@ -4,7 +4,7 @@ cidade = "Curitiba"
 geo_url = "https://geocoding-api.open-meteo.com/v1/search"
 
 geo_params = {
-"name": "curitiba",
+"name": cidade,
 "count": 1
 }
 
