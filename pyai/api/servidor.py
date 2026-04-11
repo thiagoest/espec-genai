@@ -4,6 +4,13 @@ import datetime
 
 app = FastAPI()
 
+@app.get('/saudacao')
+def saudacao():
+    return {'saudacao': 'Olá Mundo!'}
+
+@app.get('/hora_atual')
+def hora_atual():
+    return {'hora': str(datetime.datetime.now())}
 dict_pessoas = {}
 
 @app.get('/teste_async')
@@ -21,14 +28,6 @@ def nome_pessoa(cpf: int):
     if cpf not in dict_pessoas:
         raise HTTPException(status_code=400, detail="Pessoa inexistente.")
     return dict_pessoas[cpf][1]
-
-@app.get('/saudacao')
-def saudacao():
-    return {'saudacao': 'Olá Mundo!'}
-
-@app.get('/hora_atual')
-def hora_atual():
-    return {'hora': str(datetime.datetime.now())}
 
 @app.get('/verificar-cpf/{cpf_teste}')
 def verificar_cpf(cpf_teste: Annotated[int, Path(title="CPF", description="O CPF a ser testado", ge=1, le=99999999999)]):

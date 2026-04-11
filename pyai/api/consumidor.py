@@ -8,13 +8,14 @@ geo_params = {
 "count": 1
 }
 
-geo_response = requests.get(geo_url, params=geo_params)
-geo_data = geo_response.json()
+geo_response = requests.get(geo_url, params=geo_params) #requisicao
+geo_data = geo_response.json() #resposta
 
 lat = geo_data["results"][0]["latitude"]
 lon = geo_data["results"][0]["longitude"]
 
 print("Lat:", lat, "Lon:", lon)
+print(geo_data)
 
 weather_url = "https://api.open-meteo.com/v1/forecast"
 
