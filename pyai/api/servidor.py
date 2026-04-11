@@ -7,7 +7,7 @@ app = FastAPI()
 dict_pessoas = {}
 
 @app.get('/teste_async')
-def teste(id: int):
+async def teste(id: int):
     return "Teste " + str(id)
 
 @app.post("/adicionar-pessoa")
