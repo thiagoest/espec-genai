@@ -1,7 +1,26 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Path, HTTPException
+from typing import Annotated
 import datetime
 
 app = FastAPI()
+
+dict_pessoas = {}
+
+@app.get('/teste_async')
+def teste(id: int):
+    return "Teste " + str(id)
+
+@app.post("/adicionar-pessoa")
+def adicionar_pessoa(cpf: int, nome: str):
+    if cpf in dict_pessoas:
+        raise HTTPException(status_code=400, detail="CPF já cadastrado.")
+    dict_pessoas[cpf] = (cpf, nome)
+
+@app.get('/nome-pessoa/{cpf}')
+def nome_pessoa(cpf: int):
+    if cpf not in dict_pessoas:
+        raise HTTPException(status_code=400, detail="Pessoa inexistente.")
+    return dict_pessoas[cpf][1]
 
 @app.get('/saudacao')
 def saudacao():
@@ -11,10 +30,9 @@ def saudacao():
 def hora_atual():
     return {'hora': str(datetime.datetime.now())}
 
-
-
 @app.get('/verificar-cpf/{cpf_teste}')
-def verificar_cpf(cpf_teste: int):
+def verificar_cpf(cpf_teste: Annotated[int, Path(title="CPF", description="O CPF a ser testado", ge=1, le=99999999999)]):
+
     #cpf_teste = int(cpf_teste)
 
     somatorio_valida_ultimo = 0
