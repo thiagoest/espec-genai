@@ -9,7 +9,7 @@ from universidade.disciplina import Disciplina
 try:
     ps = ProfessorSubstituto("João", 11111111111)
     pa = ProfessorAdjunto("Maria", 22222222222)
-    p1 = Pessoa("Thiago", 11111111111)
+    p1 = Pessoa("Thiago", 11111111111) # classe pessoa com objetos nome e cpf
     #prof1 = Professor("Paulo", 11111111111)
     d1 = Disciplina("Orientação a Objetos", 60, pa)
     d2 = Disciplina("Algoritmos", 60, ps)
