@@ -84,3 +84,6 @@ print("ex7")
 texto_substituir = "teste texto"
 print(substituir_letras(texto_substituir, "t", "T"))
 print("-" * 20)
+
+
+### 
