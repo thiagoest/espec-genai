@@ -75,10 +75,13 @@ print("-" * 20)
 
 #ex7
 def substituir_letras(string, letra_antiga, letra_nova):
-    for x in string:
-        if x == letra_antiga:
-            string[string.find(letra_antiga)] = letra_nova
-    return string
+    nova_string = ""
+    for char in string:
+        if char == letra_antiga:
+            nova_string += letra_nova        
+        else:
+            nova_string += char
+    return nova_string
 
 print("ex7")
 texto_substituir = "teste texto"
@@ -86,4 +89,16 @@ print(substituir_letras(texto_substituir, "t", "T"))
 print("-" * 20)
 
 
-### 
+#ex8
+
+def iniciais(nome):
+    nome_lista = nome.split(" ") #separa nomes
+    iniciais = [x[0].upper() for x in nome_lista] #extrai letra inicial de cada nome
+    return ".".join(iniciais)
+
+print("ex8")
+nome = "thiago alves"
+print(iniciais(nome))
+print("-" * 20)
+
+#ex9
