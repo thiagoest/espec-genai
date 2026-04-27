@@ -107,9 +107,6 @@ def comparar_perfis(freq_texto, perfis):
     return ranking
 
 # Execucao principal
-#url = "https://www.funiviedelbaldo.it/it/" #italia
-#url = "https://es.wikipedia.org/wiki/Real_Madrid_Club_de_F%C3%BAtbol" #espanha
-#url = "https://de.wikipedia.org/wiki/Potsdam" #alemanha
 
 if __name__ == "__main__":
     texto = baixar_texto(url)
