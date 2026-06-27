@@ -1,0 +1,13 @@
+# Treinador Corrida e Ciclismo
+
+##1 escolher modelo no site https://build.nvidia.com/models
+Indicado para chatbot meta/llama-3.1-8b-instruct
+
+##2 criar conta e gerar API Key
+##3 criar aplicacao Streamlit
+
+
+##4 subir para o git (nao esquecer requirements.txt e .gitignore)
+##5 provisionar VM na Oracle Cloud
+##6 deploy da aplicacao na VM
+##7 escrever relatorio

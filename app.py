@@ -75,3 +75,4 @@ if prompt := st.chat_input("Ex: Me monte um treino de corrida para baixar de 50 
         except Exception as e:
             placeholder.error(f"Erro ao conectar com a API: {e}")
 
+##########
