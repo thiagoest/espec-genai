@@ -1,4 +1,5 @@
 # Coach Virtual de Endurance 🏃‍♂️🚴‍♀️
+Este projeto é um chatbot especializado em treinamentos de corrida e ciclismo, construído com Streamlit e alimentado pelo modelo ```llama-3.1-8b-instruct``` via NVIDIA API.
 
 ## Como rodar localmente
 Para executar este projeto na sua máquina, siga os passos abaixo.
